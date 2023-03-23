@@ -1,0 +1,105 @@
+$bg-color: #020f1d;
+$primary-color: #7692ff;
+$secondary-color: #3471b3;
+$text-color: #9dadaa;
+$input-padding: 1em;
+
+
+%label-styles-valid {
+    color: $primary-color;
+    translate: 0 calc((100% + $input-padding) * -1);
+    background-color: $bg-color;
+    scale: .7;
+    border-color: $primary-color;
+}
+
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: Geneva, Tahoma, sans-serif;
+    line-height: 1.5;
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+.form {
+    width: 90%;
+    max-width: 25rem;
+    padding: 2em;
+
+    & > * + * {
+        margin-block-start: 2em;
+    }
+
+    &__control {
+        position: relative;
+
+        &:focus-within,
+        &:has(input:valid) {
+            .form__label {
+                @extend %label-styles-valid;
+            }
+        }
+    }
+
+    &__label {
+        font-size: .8rem;
+        display: block;
+        padding-inline: 1em;
+        border-inline: 2px solid transparent;
+        text-transform: uppercase;
+        position: absolute;
+        top: 50%;
+        left: $input-padding;
+        translate: 0 -50%;
+        pointer-events: none;
+        transition-property: translate, background-color, scale, border-color, color;
+        transition-duration: 300ms, 300ms, 300ms, 50ms, 300ms;
+        transition-timing-function: linear;
+        transition-delay: 0ms, 0ms, 0ms, 300ms, 0;
+    }
+
+    &__input {
+        cursor: pointer;
+        outline: none;
+        border: 1px solid $secondary-color;
+        background-color: transparent;
+        border-radius: 5px;
+        width: 100%;
+        padding: $input-padding;
+        color: inherit;
+        transition: border-color 300ms ease-in-out;
+
+        &:hover,
+        &:focus,
+        &:valid {
+            border-color: $primary-color;
+        }
+    }
+}
+
+.btn {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: inline-box;
+    padding: 1em 1.5em;
+    background-color: $secondary-color;
+    color: #fff;
+    transition: filter 300ms ease-in-out;
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+}

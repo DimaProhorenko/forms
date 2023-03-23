@@ -1,0 +1,84 @@
+.form__control:focus-within .form__label, .form__control:has(input:valid) .form__label {
+  color: #7692ff;
+  translate: 0 calc((100% + 1em) * -1);
+  background-color: #020f1d;
+  scale: 0.7;
+  border-color: #7692ff;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: Geneva, Tahoma, sans-serif;
+  line-height: 1.5;
+  background-color: #020f1d;
+  color: #9dadaa;
+}
+
+.form {
+  width: 90%;
+  max-width: 25rem;
+  padding: 2em;
+}
+.form > * + * {
+  margin-block-start: 2em;
+}
+.form__control {
+  position: relative;
+}
+.form__label {
+  font-size: 0.8rem;
+  display: block;
+  padding-inline: 1em;
+  border-inline: 2px solid transparent;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  translate: 0 -50%;
+  pointer-events: none;
+  transition-property: translate, background-color, scale, border-color, color;
+  transition-duration: 300ms, 300ms, 300ms, 50ms, 300ms;
+  transition-timing-function: linear;
+  transition-delay: 0ms, 0ms, 0ms, 300ms, 0;
+}
+.form__input {
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #3471b3;
+  background-color: transparent;
+  border-radius: 5px;
+  width: 100%;
+  padding: 1em;
+  color: inherit;
+  transition: border-color 300ms ease-in-out;
+}
+.form__input:hover, .form__input:focus, .form__input:valid {
+  border-color: #7692ff;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: inline-box;
+  padding: 1em 1.5em;
+  background-color: #3471b3;
+  color: #fff;
+  transition: filter 300ms ease-in-out;
+}
+.btn:hover {
+  filter: brightness(1.2);
+}
+
+/*# sourceMappingURL=style.css.map */
